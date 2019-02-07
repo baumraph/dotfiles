@@ -1,0 +1,103 @@
+[colors]
+background =        #2f343f
+foreground =        #d3dae3
+urgent =            #900000
+highlight =         #5294e2
+background-alt =    #444444
+
+[all]
+padding = 2
+
+[bar/bar]
+bottom = true
+width = 100%
+height = 22
+background = ${colors.background}
+foreground = ${colors.foreground}
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+font-0 = Noto Sans:pixelsize=9;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = Font Awesome 5 Free:style=Solid:size=9;0
+modules-left = i3 
+modules-right = alsa cpu memory date
+separator = |
+wm-restack = i3
+enable-ipc = true
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode = %mode%
+label-mode-background = ${colors.background}
+label-mode-padding = ${all.padding}
+
+label-focused = %index%
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.foreground}
+label-focused-padding = ${all.padding}
+
+label-unfocused = %index%
+label-unfocused-padding = ${all.padding}
+
+label-visible = %index%
+label-visible-padding = ${all.padding}
+
+label-urgent = %index%
+label-urgent-foreground = ${colors.background}
+label-urgent-background = ${colors.urgent}
+label-urgent-padding = ${all.padding}
+
+[module/alsa]
+type = internal/alsa
+format-volume =  <bar-volume>
+label-muted =  muted
+master-mixer = Master
+bar-volume-indicator =
+bar-volume-width = 20
+bar-volume-foreground-0 = ${colors.foreground}
+bar-volume-foreground-1 = ${colors.foreground}
+bar-volume-foreground-2 = ${colors.foreground}
+bar-volume-foreground-3 = ${colors.foreground}
+bar-volume-fill = ─
+bar-volume-empty = ─
+bar-volume-empty-foreground = ${colors.background-alt}
+
+[module/cpu]
+type = internal/cpu
+format = <label> <bar-load>
+label = 
+bar-load-indicator =
+bar-load-width = 20
+bar-load-foreground-0 = ${colors.foreground}
+bar-load-foreground-1 = ${colors.foreground}
+bar-load-foreground-2 = ${colors.foreground}
+bar-load-foreground-3 = ${colors.highlight}
+bar-load-fill = ─
+bar-load-empty = ─
+bar-load-empty-foreground = ${colors.background-alt}
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label = 
+bar-used-indicator =
+bar-used-width = 20
+bar-used-foreground-0 = ${colors.foreground}
+bar-used-foreground-1 = ${colors.foreground}
+bar-used-foreground-2 = ${colors.foreground}
+bar-used-foreground-3 = ${colors.highlight}
+bar-used-fill = ─
+bar-used-empty = ─
+bar-used-empty-foreground = ${colors.background-alt}
+
+[module/date]
+type = internal/date
+date = %d.%m.%Y %H:%M
