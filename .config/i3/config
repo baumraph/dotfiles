@@ -2,14 +2,15 @@
 set $super Mod4
 
 # Autostart
-exec --no-startup-id compton -b --vsync opengl
+exec --no-startup-id compton -b
 exec --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
 
 # Applications
 bindsym $super+d exec rofi -show run
-bindsym $super+Return exec termite
-bindsym $super+e exec thunar;workspace 3;focus
-bindsym $super+c exec code;workspace 2;focus
+bindsym $super+Return exec termite -e /bin/zsh
+bindsym $super+Shift+Return exec termite -e /bin/zsh -t "floatermite"
+bindsym $super+e exec thunar
+bindsym $super+c exec code
 bindsym $super+l exec betterlockscreen -l dim
 
 # Volume
@@ -48,7 +49,7 @@ bindsym $super+v split v
 bindsym $super+f fullscreen toggle
 
 # Change container layout split
-bindsym $super+s layout toggle split
+#bindsym $super+s layout toggle split
 
 # toggle tiling / floating
 bindsym $super+t floating toggle
@@ -89,17 +90,41 @@ for_window [class=".*"] border pixel 2
 assign [class=Firefox] 1
 for_window [class=Lxappearance] floating enable
 for_window [class=Termite|Firefox] focus
+for_window [instance="termite" title="floatermite"] floating enable move right 585px, move down 280px
 
-# Color of border, background, text, indicator, and child_border
-client.focused			#5294e2 #2f343f #d3dae3 #d3dae3 #5294e2
-client.focused_inactive	#2f343f #2f343f #d3dae3 #2f343f #2f343f
-client.unfocused		#2f343f #2f343f #d3dae3 #2f343f #2f343f
-client.urgent			#2f343f #900000 #d3dae3 #2f343f #2f343f
-client.placeholder		#2f343f #2f343f #d3dae3 #2f343f #2f343f
-client.background		#2f343f
+# Colors
+set $nord00 #2e3440
+set $nord01 #3b4252
+set $nord02 #434c5e
+set $nord03 #4c566a
+set $nord04 #d8dee9
+set $nord05 #e5e9f0
+set $nord06 #eceff4
+set $nord07 #8fbcbb
+set $nord08 #88c0d0
+set $nord09 #81a1c1
+set $nord10 #5e81ac
+set $nord11 #bf616a
+set $nord12 #d08770
+set $nord13 #ebcb8b
+set $nord14 #a3be8c
+set $nord15 #b48ead
+set $unknow #00ff00
+
+# Class                 Border      Background  Text        Indicator   Child indicator
+client.focused          $nord06     $nord00     $nord06     $nord06     $nord06
+client.focused_inactive $nord06     $nord00     $nord06     $nord06     $nord06
+client.unfocused        $nord10     $nord00     $nord06     $nord06     $nord10
+client.urgent           $nord11     $nord00     $nord06     $nord06     $nord11
+client.placeholder      $nord06     $nord00     $nord06     $nord06     $nord06
+client.background       $nord00
 
 # Style
 font pango: Noto Sans 8
 gaps inner 6
 smart_gaps on
 smart_borders on
+
+# Scratchpad
+bindsym $super+Shift+s move scratchpad
+bindsym $super+s scratchpad show

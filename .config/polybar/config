@@ -1,9 +1,8 @@
 [colors]
-background =        #2f343f
-foreground =        #d3dae3
-urgent =            #900000
-highlight =         #5294e2
-background-alt =    #444444
+background =        #2e3440
+foreground =        #eceff4
+urgent =            #bf616a
+highlight =         #5e81ac
 
 [all]
 padding = 2
@@ -21,8 +20,9 @@ module-margin-right = 1
 font-0 = Noto Sans:pixelsize=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Font Awesome 5 Free:style=Solid:size=9;0
-modules-left = i3 
-modules-right = alsa cpu memory date
+modules-left = i3
+modules-center = alsa cpu memory
+modules-right = date
 separator = |
 wm-restack = i3
 enable-ipc = true
@@ -57,46 +57,46 @@ label-urgent-padding = ${all.padding}
 
 [module/alsa]
 type = internal/alsa
-format-volume =  <bar-volume>
-label-muted =  muted
+format-volume = <bar-volume>
+label-muted = muted
 master-mixer = Master
 bar-volume-indicator =
 bar-volume-width = 20
-bar-volume-foreground-0 = ${colors.foreground}
-bar-volume-foreground-1 = ${colors.foreground}
-bar-volume-foreground-2 = ${colors.foreground}
-bar-volume-foreground-3 = ${colors.foreground}
+bar-volume-foreground-0 = ${colors.highlight}
+bar-volume-foreground-1 = ${colors.highlight}
+bar-volume-foreground-2 = ${colors.highlight}
+bar-volume-foreground-3 = ${colors.highlight}
 bar-volume-fill = ─
 bar-volume-empty = ─
-bar-volume-empty-foreground = ${colors.background-alt}
+bar-volume-empty-foreground = ${colors.foreground}
 
 [module/cpu]
 type = internal/cpu
 format = <label> <bar-load>
-label = 
+label = 
 bar-load-indicator =
 bar-load-width = 20
-bar-load-foreground-0 = ${colors.foreground}
-bar-load-foreground-1 = ${colors.foreground}
-bar-load-foreground-2 = ${colors.foreground}
+bar-load-foreground-0 = ${colors.highlight}
+bar-load-foreground-1 = ${colors.highlight}
+bar-load-foreground-2 = ${colors.highlight}
 bar-load-foreground-3 = ${colors.highlight}
 bar-load-fill = ─
 bar-load-empty = ─
-bar-load-empty-foreground = ${colors.background-alt}
+bar-load-empty-foreground = ${colors.foreground}
 
 [module/memory]
 type = internal/memory
 format = <label> <bar-used>
-label = 
+label = 
 bar-used-indicator =
 bar-used-width = 20
-bar-used-foreground-0 = ${colors.foreground}
-bar-used-foreground-1 = ${colors.foreground}
-bar-used-foreground-2 = ${colors.foreground}
+bar-used-foreground-0 = ${colors.highlight}
+bar-used-foreground-1 = ${colors.highlight}
+bar-used-foreground-2 = ${colors.highlight}
 bar-used-foreground-3 = ${colors.highlight}
 bar-used-fill = ─
 bar-used-empty = ─
-bar-used-empty-foreground = ${colors.background-alt}
+bar-used-empty-foreground = ${colors.foreground}
 
 [module/date]
 type = internal/date
