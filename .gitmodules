@@ -1,0 +1,3 @@
+[submodule ".themes/Nordic"]
+	path = .themes/Nordic
+	url = git@github.com:EliverLara/Nordic.git
